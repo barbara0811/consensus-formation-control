@@ -81,6 +81,21 @@ end
 ylabel('y')
 xlabel('t')
 
+subplot(2,2,3)
+for i = 1:vx.signals.dimensions
+    plot(x.time(:), vx.signals.values(:,i),'Color', cell2mat(colors(i)));
+    hold on;
+end
+ylabel('vx')
+
+subplot(2,2,4)
+for i = 1:vy.signals.dimensions
+    plot(y.time(:), vy.signals.values(:,i), 'Color', cell2mat(colors(i)));
+    hold on;
+end
+ylabel('vy')
+xlabel('t')
+
 % subplot(2,2,3)
 % for i = 1:x_vel.signals.dimensions
 %     plot(x_vel.time(:), x_vel.signals.values(:,i),'Color', cell2mat(colors(i)));
