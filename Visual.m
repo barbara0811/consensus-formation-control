@@ -1,8 +1,8 @@
 %postavljanje granicnih vrijednosti koordinata
-xmax = 100;
-xmin = -100;
-ymax = 100;
-ymin = -100;
+xmax = 60;
+xmin = -60;
+ymax = 60;
+ymin = -80;
 
 
 %crtanje animacije
@@ -42,6 +42,7 @@ for i= 1:9
         for j=1:x.signals.dimensions
             plot(x.signals.values(a*i,j),y.signals.values(a*i,j), 'o', 'Color',cell2mat(colors(j)));
             hold on;
+            grid on;
         end
     axis([xmin,xmax,ymin,ymax]);
     title( [strcat('t = ', num2str(x.time(a*i))) 's'])
@@ -70,6 +71,7 @@ subplot(2,2,1)
 for i = 1:x.signals.dimensions
     plot(x.time(:), x.signals.values(:,i),'Color', cell2mat(colors(i)));
     hold on;
+    grid on;
 end
 ylabel('x')
 
@@ -77,14 +79,17 @@ subplot(2,2,2)
 for i = 1:y.signals.dimensions
     plot(y.time(:), y.signals.values(:,i), 'Color', cell2mat(colors(i)));
     hold on;
+    grid on;
 end
 ylabel('y')
 xlabel('t')
+
 
 subplot(2,2,3)
 for i = 1:vx.signals.dimensions
     plot(x.time(:), vx.signals.values(:,i),'Color', cell2mat(colors(i)));
     hold on;
+    grid on;
 end
 ylabel('vx')
 
@@ -92,6 +97,7 @@ subplot(2,2,4)
 for i = 1:vy.signals.dimensions
     plot(y.time(:), vy.signals.values(:,i), 'Color', cell2mat(colors(i)));
     hold on;
+    grid on;
 end
 ylabel('vy')
 xlabel('t')
