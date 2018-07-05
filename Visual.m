@@ -1,8 +1,8 @@
 %postavljanje granicnih vrijednosti koordinata
-xmax = 200;
-xmin = -20;
-ymax = 20;
-ymin = -20;
+xmax = 25;
+xmin = -25;
+ymax = 25;
+ymin = -10;
 
 
 %crtanje animacije
@@ -20,8 +20,8 @@ axis([xmin,xmax,ymin,ymax]);
 nametag = split(nametag, ' ');
 nametag = cell2mat(nametag);
 hold on
-plot((45:1:75),2,'x');
-plot((45:1:75),-2,'x');
+% plot((45:1:75),2,'x');
+% plot((45:1:75),-2,'x');
 legend(agents, nametag);
 xlabel('x')
 ylabel('y')
