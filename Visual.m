@@ -2,13 +2,15 @@
 xmax = 25;
 xmin = -25;
 ymax = 25;
-ymin = -10;
+ymin = -25;
 
 
 %crtanje animacije
+figure('Color', 'White')
 agents = [];
 trajectories = [];
 nametag = [];
+grid on;
 colors = {[0.6,0.9,0.6],[0,0.7,1],[0.85, 0.6,0.85],[1,0.8,0],[0.9,0.6,0.5],[0,0,1]};
 for i = 1:x.signals.dimensions
     agents = cat(2,agents, animatedline('MaximumNumPoints',1,'Marker', 'o','Color', cell2mat(colors(i))));
@@ -28,6 +30,7 @@ ylabel('y')
 
 
 
+
 for k = 1:length(x.signals.values)
     for j = 1:x.signals.dimensions
         addpoints(agents(j),x.signals.values(k,j),y.signals.values(k,j));
@@ -36,10 +39,9 @@ for k = 1:length(x.signals.values)
     drawnow
 end
 
-
 %crtanje 9 vremenskih isjecaka
 a = floor(length(x.signals.values)/9);
-f2 = figure('Name','2');
+f2 = figure('Name','2', 'Color', 'White');
 
 for i= 1:9
     subplot(3,3,i)
@@ -70,7 +72,7 @@ for i= 1:9
 end
 
 %crtanje bitnih podataka
-f3 = figure('Name','3');
+f3 = figure('Name','3', 'Color', 'White');
 subplot(2,2,1)
 for i = 1:x.signals.dimensions
     plot(x.time(:), x.signals.values(:,i),'Color', cell2mat(colors(i)));
@@ -78,6 +80,8 @@ for i = 1:x.signals.dimensions
     grid on;
 end
 ylabel('x')
+xlabel('t')
+legend(nametag);
 
 subplot(2,2,2)
 for i = 1:y.signals.dimensions
@@ -87,6 +91,7 @@ for i = 1:y.signals.dimensions
 end
 ylabel('y')
 xlabel('t')
+legend( nametag);
 
 
 subplot(2,2,3)
@@ -96,6 +101,8 @@ for i = 1:vx.signals.dimensions
     grid on;
 end
 ylabel('vx')
+xlabel('t')
+legend( nametag);
 
 subplot(2,2,4)
 for i = 1:vy.signals.dimensions
@@ -105,6 +112,7 @@ for i = 1:vy.signals.dimensions
 end
 ylabel('vy')
 xlabel('t')
+legend(nametag);
 
 % subplot(2,2,3)
 % for i = 1:x_vel.signals.dimensions
