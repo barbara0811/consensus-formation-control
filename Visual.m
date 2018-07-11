@@ -1,8 +1,8 @@
 %postavljanje granicnih vrijednosti koordinata
-xmax = 25;
-xmin = -25;
-ymax = 25;
-ymin = -25;
+xmax = 30;
+xmin = -15;
+ymax = 20;
+ymin = -5;
 
 
 %crtanje animacije
@@ -25,8 +25,8 @@ hold on
 % plot((45:1:75),2,'x');
 % plot((45:1:75),-2,'x');
 legend(agents, nametag);
-xlabel('x')
-ylabel('y')
+xlabel('x [m]')
+ylabel('y [m]')
 
 
 
@@ -79,29 +79,29 @@ for i = 1:x.signals.dimensions
     hold on;
     grid on;
 end
-ylabel('x')
-xlabel('t')
+ylabel('x [m]')
+xlabel('t [s]')
 legend(nametag);
 
-subplot(2,2,2)
+subplot(2,2,3)
 for i = 1:y.signals.dimensions
     plot(y.time(:), y.signals.values(:,i), 'Color', cell2mat(colors(i)));
     hold on;
     grid on;
 end
-ylabel('y')
-xlabel('t')
+ylabel('y [m]')
+xlabel('t [s]')
 legend( nametag);
 
 
-subplot(2,2,3)
+subplot(2,2,2)
 for i = 1:vx.signals.dimensions
     plot(x.time(:), vx.signals.values(:,i),'Color', cell2mat(colors(i)));
     hold on;
     grid on;
 end
-ylabel('vx')
-xlabel('t')
+ylabel('v_{x}[m/s]')
+xlabel('t [s]')
 legend( nametag);
 
 subplot(2,2,4)
@@ -110,8 +110,8 @@ for i = 1:vy.signals.dimensions
     hold on;
     grid on;
 end
-ylabel('vy')
-xlabel('t')
+ylabel('v_{y} [m/s]')
+xlabel('t [s]')
 legend(nametag);
 
 % subplot(2,2,3)
